@@ -4,6 +4,7 @@ import Submenu from '@/ui/submenuBase';
 import templateHtml from '@/ui/template/submenu/text';
 import { assignmentForDestroy } from '@/util';
 import { defaultTextRangeValues } from '@/consts';
+import FontFamily from './tools/fontFamily';
 
 /**
  * Crop ui class
@@ -42,6 +43,15 @@ export default class Text extends Submenu {
         },
         defaultTextRangeValues
       ),
+      fontFamily: new FontFamily(this.selector('.tie-font-family'), {
+        defaultFont: 'Arial sans-serif',
+        fontFamilies: [
+          'Arial sans-serif',
+          'Verdana sans-serif',
+          'Helvetica sans-serif',
+          'Tahoma sans-serif',
+        ],
+      }),
     };
   }
 
@@ -75,6 +85,7 @@ export default class Text extends Submenu {
     this._els.textAlignButton.addEventListener('click', setTextAlign);
     this._els.textRange.on('change', this._changeTextRnageHandler.bind(this));
     this._els.textColorpicker.on('change', this._changeColorHandler.bind(this));
+    this._els.fontFamily.on('change', this._changeFontFamilyHandler.bind(this));
   }
 
   /**
@@ -239,6 +250,19 @@ export default class Text extends Submenu {
       },
       !isLast
     );
+  }
+
+  /**
+   * text align set handler
+   * @param {number} value - range value
+   * @param {boolean} isLast - Is last change
+   * @private
+   */
+  _changeFontFamilyHandler(value) {
+    console.log(value);
+    this.actions.changeTextStyle({
+      fontFamily: value,
+    });
   }
 
   /**

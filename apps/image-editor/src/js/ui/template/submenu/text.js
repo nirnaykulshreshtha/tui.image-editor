@@ -55,6 +55,14 @@ export default ({ locale, makeSvgIcon }) => `
         <li>
             <div class="tie-text-color" title="${locale.localize('Color')}"></div>
         </li>
+        <li class="tui-image-editor-partition">
+            <div></div>
+        </li>
+        <li>
+            <div class="tui-image-editor-button tie-font-family">
+                <label> ${locale.localize('Font Family')} </label>
+            </div>
+        </li>
         <li class="tui-image-editor-partition only-left-right">
             <div></div>
         </li>
