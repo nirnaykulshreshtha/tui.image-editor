@@ -44,14 +44,8 @@ export default class Text extends Submenu {
         defaultTextRangeValues
       ),
       fontFamily: new FontFamily(this.selector('.tie-font-family'), {
-        defaultFont: 'Arial sans-serif',
-        fontFamilies: [
-          'Arial sans-serif',
-          'Verdana sans-serif',
-          'Helvetica sans-serif',
-          'Tahoma sans-serif',
-          'Train One',
-        ],
+        defaultFont: 'Arial',
+        fontFamilies: ['Courier New', 'Arial', 'Verdana', 'Helvetica', 'Tahoma', 'Train One'],
       }),
     };
   }

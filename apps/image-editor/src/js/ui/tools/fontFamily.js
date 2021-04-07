@@ -27,7 +27,6 @@ class FontFamily {
 
     this._fontFamilyElement = fontFamilyElement;
     this.selectBox = this._fontPickerWithSelectbox(this._fontFamilyElement);
-    // this.selectBox.addEventListener('change', this._changeFontFamilyHandler.bind(this));
     this._addEvent();
   }
 
@@ -44,7 +43,7 @@ class FontFamily {
 
     this._makeSelectOptionList(selectlist);
 
-    pickerControl.appendChild(selectlistWrap);
+    pickerControl.prepend(selectlistWrap);
     pickerControl.style.height = PICKER_CONTROL_HEIGHT;
 
     this._drawSelectOptionList(selectlist, optionlist);
@@ -120,23 +119,6 @@ class FontFamily {
     this.selectBox.addEventListener('change', (event) => {
       this.fire('change', event.target.value);
     });
-  }
-
-  /**
-   * text align set handler
-   * @param {Event} event - Change Event
-   * @private
-   */
-  _changeFontFamilyHandler(event) {
-    console.log(event);
-    console.log(event.target.value);
-    this.changeTextStyle(
-      0,
-      {
-        fontFamily: event.target.value,
-      },
-      true
-    );
   }
 }
 
