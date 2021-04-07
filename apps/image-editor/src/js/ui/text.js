@@ -12,7 +12,10 @@ import FontFamily from './tools/fontFamily';
  * @ignore
  */
 export default class Text extends Submenu {
-  constructor(subMenuElement, { locale, makeSvgIcon, menuBarPosition, usageStatistics }) {
+  constructor(
+    subMenuElement,
+    { locale, makeSvgIcon, menuBarPosition, usageStatistics, fontFamily }
+  ) {
     super(subMenuElement, {
       locale,
       name: 'text',
@@ -27,6 +30,8 @@ export default class Text extends Submenu {
       underline: false,
     };
     this.align = 'left';
+    console.log(this);
+    this.fontFamily = fontFamily;
     this._els = {
       textEffectButton: this.selector('.tie-text-effect-button'),
       textAlignButton: this.selector('.tie-text-align-button'),
@@ -44,8 +49,10 @@ export default class Text extends Submenu {
         defaultTextRangeValues
       ),
       fontFamily: new FontFamily(this.selector('.tie-font-family'), {
-        defaultFont: 'Arial',
-        fontFamilies: ['Courier New', 'Arial', 'Verdana', 'Helvetica', 'Tahoma', 'Train One'],
+        defaultFont: fontFamily ? fontFamily.defaultFont : 'Arial',
+        fontFamilies: fontFamily
+          ? ['Courier New', 'Arial', 'Verdana', 'Helvetica', 'Tahoma', ...fontFamily.fontFamilies]
+          : ['Courier New', 'Arial', 'Verdana', 'Helvetica', 'Tahoma'],
       }),
     };
   }
@@ -249,14 +256,14 @@ export default class Text extends Submenu {
 
   /**
    * text align set handler
-   * @param {number} value - range value
-   * @param {boolean} isLast - Is last change
+   * @param {string} fontFamily - font family name
    * @private
    */
-  _changeFontFamilyHandler(value) {
-    console.log(value);
+  _changeFontFamilyHandler(fontFamily) {
+    fontFamily = fontFamily || this.fontFamily.defaultFont;
+    this.fontFamily.defaultFont = fontFamily;
     this.actions.changeTextStyle({
-      fontFamily: value,
+      fontFamily,
     });
   }
 

@@ -423,6 +423,7 @@ class Filter extends Submenu {
    * @private
    */
   _pickerWithSelectboxForAddEvent(selectlist, optionlist) {
+    console.log(selectlist, optionlist);
     optionlist.addEventListener('click', (event) => {
       const optionValue = event.target.getAttribute('data-item');
       const fireEvent = document.createEvent('HTMLEvents');

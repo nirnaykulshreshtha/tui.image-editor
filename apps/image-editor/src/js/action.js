@@ -497,12 +497,12 @@ export default {
       },
       /* eslint-enable complexity */
       addText: (pos) => {
-        const { textColor: fill, fontSize, fontStyle, fontWeight, underline } = this.ui.text;
-        const fontFamily = 'Noto Sans';
+        const { textColor: fill, fontSize, fontStyle, fontWeight, underline, fontFamily } = this.ui.text;
+        const defaultFontFamily = fontFamily.defaultFont;
 
         this.addText('Double Click', {
           position: pos.originPosition,
-          styles: { fill, fontSize, fontFamily, fontStyle, fontWeight, underline },
+          styles: { fill, fontSize, fontFamily: defaultFontFamily, fontStyle, fontWeight, underline },
         }).then(() => {
           this.changeCursor('default');
         });
