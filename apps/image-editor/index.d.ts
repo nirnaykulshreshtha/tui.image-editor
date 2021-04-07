@@ -168,6 +168,10 @@ declare namespace tuiImageEditor {
     };
     menuBarPosition?: string;
     usageStatistics?: boolean;
+    fontFamily?: {
+      defaultFont: string,
+      fontFamilies: string[],
+    }
   }
 
   interface ISelectionStyleConfig {
