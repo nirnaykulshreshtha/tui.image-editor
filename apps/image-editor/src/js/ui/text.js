@@ -50,6 +50,7 @@ export default class Text extends Submenu {
           'Verdana sans-serif',
           'Helvetica sans-serif',
           'Tahoma sans-serif',
+          'Train One',
         ],
       }),
     };
