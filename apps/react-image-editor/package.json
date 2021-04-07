@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "fabric": "^4.2.0",
-    "tui-image-editor": "^3.14.3"
+    "tui-image-editor": "^3.14.3",
+    "undefined": "/Users/nirnaykulshreshtha/IdeaProjects/tui.image-editor/apps/image-editor"
   }
 }
