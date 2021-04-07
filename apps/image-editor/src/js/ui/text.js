@@ -30,7 +30,6 @@ export default class Text extends Submenu {
       underline: false,
     };
     this.align = 'left';
-    console.log(this);
     this.fontFamily = fontFamily;
     this._els = {
       textEffectButton: this.selector('.tie-text-effect-button'),

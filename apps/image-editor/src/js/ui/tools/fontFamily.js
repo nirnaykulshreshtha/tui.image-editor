@@ -20,8 +20,9 @@ const DEFAULT_FONT_FAMILIES = [
  * @ignore
  */
 class FontFamily {
-  constructor(fontFamilyElement, { fontFamilies = [] }) {
+  constructor(fontFamilyElement, { defaultFont, fontFamilies = [] }) {
     this.fontFamilyElement = fontFamilyElement;
+    this.defaultFontFamily = defaultFont;
     this.fontFamilies =
       fontFamilies && fontFamilies.length > 0 ? fontFamilies : DEFAULT_FONT_FAMILIES;
 
@@ -61,6 +62,7 @@ class FontFamily {
     snippet.forEach(this.fontFamilies, (option) => {
       const selectOption = document.createElement('option');
       selectOption.setAttribute('value', option);
+      selectOption.setAttribute('selected', option === this.defaultFontFamily);
       selectOption.innerHTML = option.replace(/^[a-z]/, ($0) => $0.toUpperCase());
       selectlist.appendChild(selectOption);
     });
